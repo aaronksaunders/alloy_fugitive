@@ -1,22 +1,19 @@
 migration.up = function(db) {
-	db.createTable("Fugitive",
-		{
-		    "columns": {
-				"name": "string",
-				"captured": "integer",
-				"url": "String" ,
-				"capturedLat": "real",
-				"capturedLong": "real"
-		    },
-		    "defaults": {},
-		    "adapter": {
-		        "type": "sql",
-		        "tablename": "Fugitive"
-		    }
-		}
-	);
+    db.createTable({
+        "columns" : {
+            "name" : "string",
+            "captured" : "integer",
+            "url" : "String",
+            "capturedLat" : "real",
+            "capturedLong" : "real"
+        },
+        "adapter" : {
+            "type" : "sql",
+            "collection_name" : "fugitives"
+        }
+    });
 };
 
 migration.down = function(db) {
-	db.dropTable("Fugitive");
+    db.dropTable("fugitives");
 };

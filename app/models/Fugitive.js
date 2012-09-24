@@ -1,9 +1,34 @@
-(function(Model) {
-	// add code to modify/extend your Model definition
-	// Example:
-	//   return Model.extend({
-	//       customProperty: 123,
-	//       customFunction: function() {}
-	//   });
-	return Model; 
-})
+exports.definition = {
+
+    config : {
+        "columns" : {
+            "name" : "string",
+            "captured" : "integer",
+            "url" : "string",
+            "capturedLat" : "real",
+            "capturedLong" : "real"
+        },
+        "adapter" : {
+            "type" : "sql",
+            "collection_name" : "fugitives"
+        }
+    },
+
+    extendModel : function(Model) {
+        _.extend(Model.prototype, {
+
+        });
+        // end extend
+
+        return Model;
+    },
+
+    extendCollection : function(Collection) {
+        _.extend(Collection.prototype, {
+
+        });
+        // end extend
+
+        return Collection;
+    }
+}

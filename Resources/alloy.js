@@ -4,22 +4,28 @@ function isTabletFallback() {
 
 var _ = require("alloy/underscore")._, Backbone = require("alloy/backbone"), STR = require("alloy/string");
 
-exports._ = _, exports.Backbone = Backbone, Backbone.sync = function(method, model, opts) {
-    var m = model.config || {}, type = (m.adapter ? m.adapter.type : null) || "sql";
-    require("alloy/sync/" + type).sync(model, method, opts);
-}, exports.M = function(name, config, modelFn, migrations) {
-    var type = (config.adapter ? config.adapter.type : null) || "sql", adapter = require("alloy/sync/" + type), extendObj = {
+exports._ = _, exports.Backbone = Backbone, exports.M = function(name, modelDesc, migrations) {
+    var config = modelDesc.config, type = (config.adapter ? config.adapter.type : null) || "localDefault";
+    Ti.Platform.osname === "mobileweb" && type === "localDefault" ? type = "localStorage" : type === "localDefault" && (type = "sql");
+    var adapter = require("alloy/sync/" + type), extendObj = {
         defaults: config.defaults,
-        validate: function(attrs) {
-            if (typeof Model.__validate != "undefined" && _.isFunction(Model.__validate)) for (var k in attrs) {
-                var t = Model.__validate(k, attrs[k]);
-                if (!t) return "validation failed for: " + k;
-            }
+        sync: function(method, model, opts) {
+            var config = model.config || {}, type = (config.adapter ? config.adapter.type : null) || "localDefault";
+            Ti.Platform.osname === "mobileweb" && type === "localDefault" ? type = "localStorage" : type === "localDefault" && (type = "sql"), require("alloy/sync/" + type).sync(model, method, opts);
         }
     }, extendClass = {};
     migrations && (extendClass.migrations = migrations), _.isFunction(adapter.beforeModelCreate) && (config = adapter.beforeModelCreate(config) || config);
     var Model = Backbone.Model.extend(extendObj, extendClass);
-    return Model.prototype.config = config, _.isFunction(adapter.afterModelCreate) && adapter.afterModelCreate(Model), Model = modelFn(Model) || Model, Model;
+    return Model.prototype.config = config, _.isFunction(adapter.afterModelCreate) && adapter.afterModelCreate(Model), _.isFunction(modelDesc.extendModel) && (Model = modelDesc.extendModel(Model) || Model), Model;
+}, exports.C = function(name, modelDesc, model) {
+    var extendObj = {
+        model: model,
+        sync: function(method, model, opts) {
+            var config = model.config || {}, type = (config.adapter ? config.adapter.type : null) || "localDefault";
+            Ti.Platform.osname === "mobileweb" && type === "localDefault" ? type = "localStorage" : type === "localDefault" && (type = "sql"), require("alloy/sync/" + type).sync(model, method, opts);
+        }
+    }, Collection = Backbone.Collection.extend(extendObj);
+    return Collection.prototype.config = model.prototype.config, _.isFunction(modelDesc.extendModel) && (Collection = modelDesc.extendCollection(Collection) || Collection), Collection;
 }, exports.A = function(t, type, parent) {
     return _.extend(t, Backbone.Events), function() {
         var al = t.addEventListener, rl = t.removeEventListener, oo = t.on, of = t.off, tg = t.trigger, cbs = [], ctx = {};

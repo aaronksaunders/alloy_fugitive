@@ -4,8 +4,6 @@ var args = arguments[0] || {};
 // which is found in views/row.xml based on the arguments
 // passed into the controller
 //
-//$.thumbnail.image = args.image;
-$.parentController = args.parent;
 
 //
 // EVENT HANDLER
@@ -20,8 +18,8 @@ $.save_button.addEventListener('click', function(_e) {
 	// save model
 	fugitiveModel.save();
 
-	// force update of UI
-	$.parentController.trigger('update_table');
+	// force tables to update
+	Ti.App.fireEvent('update_table');
 
 	// close window
 	$.fugitiveAddWindow.close()

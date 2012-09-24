@@ -13,30 +13,28 @@ function populateData() {
 		Ti.API.info(" users..." + JSON.stringify(fugitiveCollection));
 
 		var rows = [];
+		// clear the table
 		$.table.setData([]);
+		
+		// loop throu collection and add them to table
 		for (var i = 0; i < fugitiveCollection.length; i++) {
 			var model = fugitiveCollection.at(i);
 			var row = Alloy.createController('FugitiveRow', model.toJSON()).getView();
+			
+			// save the model with the row
 			row.model = model;
+			
+			// push into array
 			rows.push(row);
 		}
+		
+		// set the table
 		$.table.setData(rows);
-		Ti.API.debug("set table data");
 
 	});
 
 	// get the data
-	fugitiveCollection.fetch({
-		data : {
-			"captured" : "true"
-		},
-		success : function(collection, response) {
-			Ti.API.info("success " + JSON.stringify(collection));
-		},
-		error : function(collection, response) {
-			Ti.API.error("error " + JSON.stringify(collection));
-		}
-	});
+	fugitiveCollection.fetch();
 
 }
 
@@ -44,9 +42,7 @@ function populateData() {
  *
  */
 function addNewFugitive() {
-	var addFugitiveController = Alloy.createController('FugitiveAdd', {
-		parent : $
-	});
+	var addFugitiveController = Alloy.createController('FugitiveAdd');
 	$.fugitiveTab.open(addFugitiveController.getView());
 }
 
@@ -55,7 +51,7 @@ function addNewFugitive() {
 //
 $.table.addEventListener('click', function(_e) {
 	var detailController = Alloy.createController('FugitiveDetail', {
-		parent : $,
+		parentTab : $.fugitiveTab,
 		data : _e.rowData.model
 	});
 	$.fugitiveTab.open(detailController.getView());

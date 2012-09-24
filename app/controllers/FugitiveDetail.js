@@ -5,7 +5,7 @@ var args = arguments[0] || {};
 // passed into the controller
 //
 //$.thumbnail.image = args.image;
-$.parentController = args.parent;
+$.parentController = args.parentTab;
 
 if (args.data) {
 	//$.name_tf.value = args.data.get("name");
@@ -79,8 +79,7 @@ $.map_button.addEventListener('click', function(_e) {
 		var mapController = Alloy.createController('MapDetail', {
 			model : args.data
 		});
-		var tab = $.parentController.fugitiveTab || $.parentController.capturedTab;
-		tab.open(mapController.getView());
+		args.parentTab.open(mapController.getView());
 	} else {
 		alert('Not Captured Yet');
 	}

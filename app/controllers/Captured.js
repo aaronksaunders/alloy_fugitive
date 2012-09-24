@@ -15,8 +15,6 @@ function populateData() {
 			captured : 1
 		});
 
-		Ti.API.info(" capCollection..." + JSON.stringify(capCollection));
-		Ti.API.info(" fugitiveCollection..." + JSON.stringify(fugitiveCollection));
 
 		var rows = [];
 		$.table.setData([]);
@@ -34,14 +32,7 @@ function populateData() {
 	});
 
 	// get the data
-	fugitiveCollection.fetch({
-		success : function(collection, response) {
-			Ti.API.info("success " + JSON.stringify(collection));
-		},
-		error : function(collection, response) {
-			Ti.API.error("error " + JSON.stringify(collection));
-		}
-	});
+	fugitiveCollection.fetch();
 
 }
 
@@ -50,7 +41,7 @@ function populateData() {
 //
 $.table.addEventListener('click', function(_e) {
 	var detailController = Alloy.createController('FugitiveDetail', {
-		parent : $,
+		parentTab : $.capturedTab,
 		data : _e.rowData.model
 	});
 	$.capturedTab.open(detailController.getView());

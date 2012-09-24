@@ -1,0 +1,8 @@
+<Alloy>
+	<TabGroup id='tabGroup'>
+		<!-- Tab included via <Require> tag -->
+		<Require src="Fugitives"/>
+		<!-- Tab included via <Require> tag -->
+		<Require src="Captured"/>
+	</TabGroup>
+</Alloy>

@@ -1,0 +1,9 @@
+<Alloy>
+	<Tab id="fugitiveTab" title="Fugitives">
+		<Window id="fugitiveWindow"  title="Fugitives" class='container'>
+			<TableView id="table"/>
+			<!-- hidden and used later -->
+			<Button id="add" title="Add" top="-50dp"></Button>
+		</Window>
+	</Tab>
+</Alloy>

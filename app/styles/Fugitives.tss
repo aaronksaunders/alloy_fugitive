@@ -1,0 +1,15 @@
+".container": {
+	backgroundColor: "white"
+},
+"Tab" : {
+	icon: '/images/fugitives.png',
+},
+"Window": {
+		backgroundColor:'transparent',
+		backgroundImage: 'images/grain.png',
+		title: 'Fugitives',
+		barColor: '#6d0a0c',
+},
+'#table' : {
+	backgroundColor: 'transparent'
+}

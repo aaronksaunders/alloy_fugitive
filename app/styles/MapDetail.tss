@@ -1,0 +1,15 @@
+".container": {
+	backgroundColor: "white"
+},
+"#mapWindow":{
+	title : "Captured Location",
+	barColor: '#6d0a0c',
+	backgroundColor:'#fff'
+},
+"#mapView" : {
+	mapType: Ti.Map.STANDARD_TYPE,
+	animate:true,
+	regionFit:true,
+	userLocation:false,
+	annotations:[]
+}

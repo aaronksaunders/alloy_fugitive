@@ -1,0 +1,52 @@
+".container": {
+	backgroundColor: "white"
+},
+"#detailWindow" : {
+		title:"Fugitive",
+		layout:'vertical',
+		barColor: '#6d0a0c',
+		backgroundColor: 'transparent',
+		backgroundImage: 'images/grain.png'
+},
+"#captured_lbl" : {
+		top:10,
+		textAlign:'center',
+		font: {
+			fontWeight:'bold',
+			fontSize:18
+		},
+		color: '#fff',
+		height:Ti.UI.SIZE
+},
+"#image" : {
+		height:80,
+		width:60,
+		top:10
+},
+"#name_tf[platform=android]" : {
+		height:Ti.UI.SIZE ,
+},
+"#photo_button" :{
+		title:'Add Photo',
+		top:10,
+		height:Ti.UI.SIZE,
+		width:200
+},
+"#capture_button" :{
+		title:'Captured',
+		top:10,
+		height:Ti.UI.SIZE,
+		width:200
+},
+"#map_button" :{
+		title:'View On Map',
+		top:10,
+		height:Ti.UI.SIZE,
+		width:200
+},
+"#delete_button" :{
+		title:'Delete',
+		top:10,
+		height:Ti.UI.SIZE,
+		width:200
+}

@@ -9,34 +9,39 @@ function populateData() {
 	var fugitiveCollection = Alloy.createCollection("Fugitive");
 
 	// update the table here
-	fugitiveCollection.on("fetch", function() {
-		Ti.API.info(" users..." + JSON.stringify(fugitiveCollection));
+	function populateData() {
 
-		var rows = [];
-		// clear the table
-		$.table.setData([]);
-		
-		// loop throu collection and add them to table
-		for (var i = 0; i < fugitiveCollection.length; i++) {
-			var model = fugitiveCollection.at(i);
-			var row = Alloy.createController('FugitiveRow', model.toJSON()).getView();
-			
-			// save the model with the row
-			row.model = model;
-			
-			// push into array
-			rows.push(row);
-		}
-		
-		// set the table
-		$.table.setData(rows);
+		var fugitiveCollection = Alloy.createCollection("Fugitive");
 
-	});
+		// update the table here
+		fugitiveCollection.on("fetch", function() {
+			// filter the collection
+			var atLargeCollection = fugitiveCollection.where({
+				captured : 0
+			});
+			Ti.API.info(" users..." + JSON.stringify(fugitiveCollection));
 
-	// get the data
-	fugitiveCollection.fetch();
+			var rows = [];
+			// clear the table
+			$.table.setData([]);
 
-}
+			// loop throu collection and add them to table
+			for (var i = 0; i < atLargeCollection.length; i++) {
+				var model = atLargeCollection[i];
+				var row = Alloy.createController('FugitiveRow', model.toJSON()).getView();
+				row.model = model;
+				rows.push(row);
+			}
+
+			// set the table
+			$.table.setData(rows);
+
+		});
+
+		// get the data
+		fugitiveCollection.fetch();
+
+	}
 
 /**
  *

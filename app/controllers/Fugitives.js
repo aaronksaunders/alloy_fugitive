@@ -25,9 +25,8 @@ function populateData() {
         // loop throu collection and add them to table
         for (var i = 0; i < atLargeCollection.length; i++) {
             var model = atLargeCollection[i];
-            var row = Alloy.createController('FugitiveRow', model.toJSON()).getView();
-            row.model = model;
-            rows.push(row);
+            var rowCtrl = Alloy.createController('FugitiveRow', model);
+            rows.push(rowCtrl.row);
         }
 
         // set the table

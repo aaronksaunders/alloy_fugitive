@@ -1,4 +1,6 @@
-var args = arguments[0] || {};
+debugger;
+var model = arguments[0] || {};
+var args = model.toJSON();
 //
 // this is setting the view elements of the row view
 // which is found in views/row.xml based on the arguments
@@ -6,4 +8,8 @@ var args = arguments[0] || {};
 //
 //$.thumbnail.image = args.image;
 $.name.text = args.name || '';
-$.row.dataId = args.id;
+$.row.applyProperties({
+    'model' : model,
+    'dataId' : args.id
+});
+

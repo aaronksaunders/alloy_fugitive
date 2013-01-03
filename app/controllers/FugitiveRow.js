@@ -8,8 +8,6 @@ var args = model.toJSON();
 //
 //$.thumbnail.image = args.image;
 $.name.text = args.name || '';
-$.row.applyProperties({
-    'model' : model,
-    'dataId' : args.id
-});
+$.row.model = model.clone();
+$.row.dataId = args.id;
 

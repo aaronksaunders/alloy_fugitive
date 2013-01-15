@@ -1,44 +1,8 @@
+var fugitiveCollection = Alloy.Collections.Fugitive;
+
 // ..
 // PRIVATE FUNCTIONS
 //
-/**
- *
- */
-
-// update the table here
-function populateData() {
-
-    var fugitiveCollection = Alloy.createCollection("Fugitive");
-
-    // update the table here
-    fugitiveCollection.on("fetch", function() {
-        // filter the collection
-        var atLargeCollection = fugitiveCollection.where({
-            captured : 0
-        });
-        Ti.API.info(" users..." + JSON.stringify(fugitiveCollection));
-
-        var rows = [];
-        // clear the table
-        $.table.setData([]);
-
-        // loop throu collection and add them to table
-        for (var i = 0; i < atLargeCollection.length; i++) {
-            var model = atLargeCollection[i];
-            var rowCtrl = Alloy.createController('FugitiveRow', model);
-            rows.push(rowCtrl.row);
-        }
-
-        // set the table
-        $.table.setData(rows);
-
-    });
-
-    // get the data
-    fugitiveCollection.fetch();
-
-}
-
 /**
  *
  */
@@ -53,18 +17,11 @@ function addNewFugitive() {
 $.table.addEventListener('click', function(_e) {
     var detailController = Alloy.createController('FugitiveDetail', {
         parentTab : $.fugitiveTab,
-        data : _e.rowData.model
+        data : Alloy.Collections.Fugitive.models[_e.index]
     });
     $.fugitiveTab.open(detailController.getView());
 });
 
-// force table update
-$.on('update_table', populateData);
-
-// force tables to update
-Ti.App.addEventListener('update_table', function() {
-    populateData();
-});
 
 //
 // INITIALIZERS
@@ -76,5 +33,3 @@ if (Ti.Platform.osname === 'iphone') {
     $.fugitiveWindow.setRightNavButton($.add);
 }
 
-//run initial query
-populateData();

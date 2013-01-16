@@ -1,6 +1,5 @@
 <Alloy>
 	<Window id="detailWindow">
-		<Label id="name_lbl"></Label>
 		<Label id="captured_lbl"></Label>
 		<ImageView id="image"></ImageView>
 		<Button id="photo_button"></Button>

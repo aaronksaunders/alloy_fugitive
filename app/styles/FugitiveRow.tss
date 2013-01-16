@@ -19,5 +19,6 @@
 	right: "5dp",
 	font: {
 		fontSize: "24dp"
-	}
+	},
+	color: '#fff'
 },

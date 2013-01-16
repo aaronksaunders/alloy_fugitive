@@ -8,8 +8,7 @@ var args = arguments[0] || {};
 $.parentController = args.parentTab;
 
 if (args.data) {
-	//$.name_tf.value = args.data.get("name");
-	$.name_lbl.text = args.data.get("name");
+	$.detailWindow.title = args.data.get("name");
 	$.captured_lbl.text = args.data.get("captured") ? "Captured" : "Not Captured";
 	$.image.image = args.data.get("url") || '/images/burglar.png';
 

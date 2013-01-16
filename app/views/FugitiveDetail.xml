@@ -1,11 +1,13 @@
 <Alloy>
-	<Window id="detailWindow">
-		<Label id="name_lbl"></Label>
-		<Label id="captured_lbl"></Label>
-		<ImageView id="image"></ImageView>
-		<Button id="photo_button"></Button>
-		<Button id="capture_button"></Button>
-		<Button id="map_button"></Button>
-		<Button id="delete_button"></Button>
+    <Model src="Fugitive" instance="true" id="fugitiveDetail"> 
+    <!-- dataTransform is not wired up yet, but i hacked it into my code -->
+	<Window id="detailWindow" model="$.fugitiveDetail" dataTransform="dataTransformation">
+		<Label id="name_lbl" text="{$.fugitiveDetail.name}" ></Label>
+		<Label id="captured_lbl" text="{$.fugitiveDetail.captured}" ></Label>
+		<ImageView id="image" image="{$.fugitiveDetail.image}" ></ImageView>
+		<Button id="photo_button"  ></Button>
+		<Button id="capture_button"  ></Button>
+		<Button id="map_button"  ></Button>
+		<Button id="delete_button"  ></Button>
 	</Window>
 </Alloy>

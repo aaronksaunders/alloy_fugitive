@@ -10,17 +10,17 @@ var args = arguments[0] || {};
 //
 $.save_button.addEventListener('click', function(_e) {
 
-	var fugitiveModel = Alloy.createModel("Fugitive", {
-		name : $.name_tf.value,
-		captured : false
-	});
+    var fugitiveModel = Alloy.createModel("Fugitive", {
+        name : $.name_tf.value,
+        captured : false
+    });
 
-	// save model
-	fugitiveModel.save();
+    // save model
+    fugitiveModel.save();
 
-	// force tables to update
-	Ti.App.fireEvent('update_table');
+    // force tables to update
+    Alloy.Collections.Fugitive.fetch();
 
-	// close window
-	$.fugitiveAddWindow.close()
+    // close window
+    $.fugitiveAddWindow.close()
 });

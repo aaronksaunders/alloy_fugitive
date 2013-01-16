@@ -7,6 +7,13 @@ migration.up = function(db) {
             "capturedLat" : "real",
             "capturedLong" : "real"
         },
+		"defaults" : {
+		    "name" : "",
+		    "captured" : 0,
+		    "url" : "",
+		    "capturedLat" : "",
+		    "capturedLong" : ""
+		},
         "adapter" : {
             "type" : "sql",
             "collection_name" : "fugitives"

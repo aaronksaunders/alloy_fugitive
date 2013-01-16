@@ -1,8 +1,8 @@
 <Alloy>
-	<TableViewRow id="row" dataId="">
+	<TableViewRow id="row" dataId="" model="{id}">
 		<View class="vgroup">
-			<Label id="name"/>
-			<Label id="address"/>
+			<Label id="name" text="{name}"/>
+			<Label id="address" text="{address}"/>
 		</View>
 	</TableViewRow>
 </Alloy>

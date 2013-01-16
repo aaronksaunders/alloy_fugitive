@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><ti:app xmlns:ti="http://ti.appcelerator.org">
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
     <property name="acs-oauth-secret-production" type="string">1xVRU1INJopsq90pMwz5CqIspv84TNVl</property>
     <property name="acs-oauth-key-production" type="string">rrV83flILTNfeEtbSXSw0Xx1HJ85F2jG</property>
     <property name="acs-api-key-production" type="string">MRNJnjzy9D03hm6Hzle62e6gHrWOFZiD</property>
@@ -12,7 +13,7 @@
         <target device="android">true</target>
         <target device="blackberry">false</target>
     </deployment-targets>
-    <sdk-version>2.1.2.GA</sdk-version>
+    <sdk-version>3.0.0.GA</sdk-version>
     <id>ci.alloy.fugitive</id>
     <name>alloy_fugitive</name>
     <version>1.0</version>
@@ -52,8 +53,9 @@
     </mobileweb>
     <modules>
         <module platform="commonjs" version="2.3.0">ti.cloud</module>
-    <module platform="android" version="1.0">ti.physicalSizeCategory</module>
-</modules>
-<plugins><plugin version="1.0">ti.alloy</plugin>
-</plugins>
+        <module platform="android" version="1.0">ti.physicalSizeCategory</module>
+    </modules>
+    <plugins>
+        <plugin version="1.0">ti.alloy</plugin>
+    </plugins>
 </ti:app>

@@ -1,4 +1,3 @@
-
 import os, sys, subprocess, hashlib
 
 import subprocess
@@ -24,12 +23,61 @@ def check_output(*popenargs, **kwargs):
     return output
 
 def compile(config):
+    paths = {}
+    binaries = ["alloy","node"]
+
+    for binary in binaries:
+        try:
+            # see if the environment variable is defined
+            paths[binary] = os.environ["ALLOY_" + ("NODE_" if binary == "node" else "") + "PATH"]
+        except KeyError as ex:
+            # next try PATH, and then our guess paths
+            if sys.platform == "darwin" or sys.platform.startswith('linux'):
+                userPath = os.environ["HOME"]
+                guessPaths = [
+                    "/usr/local/bin/"+binary,
+                    "/opt/local/bin/"+binary,
+                    userPath+"/local/bin/"+binary,
+                    "/opt/bin/"+binary,
+                    "/usr/bin/"+binary,
+                    "/usr/local/share/npm/bin/"+binary
+                ]
+                
+                try:
+                    binaryPath = check_output(["which",binary], stderr=subprocess.STDOUT).strip()
+                    print "[DEBUG] %s installed at '%s'" % (binary,binaryPath)
+                except:
+                    print "[WARN] Couldn't find %s on your PATH:" % binary
+                    print "[WARN]   %s" % os.environ["PATH"]
+                    print "[WARN]"
+                    print "[WARN] Checking for %s in a few default locations:" % binary
+                    for p in guessPaths:
+                        sys.stdout.write("[WARN]   %s -> " % p)
+                        if os.path.exists(p):
+                            binaryPath = p
+                            print "FOUND"
+                            break
+                        else:
+                            print "not found"
+                            binaryPath = None
+                        
+                if binaryPath is None:
+                    print "[ERROR] Couldn't find %s" % binary
+                    sys.exit(1)
+                else:
+                    paths[binary] = binaryPath
+        
+            # no guesses on windows, just use the PATH
+            elif sys.platform == "win32":
+                paths["alloy"] = "alloy.cmd"
+
+
+            
     f = os.path.abspath(os.path.join(config['project_dir'], 'app'))
     if os.path.exists(f):
         print "[INFO] alloy app found at %s" % f
         rd = os.path.abspath(os.path.join(config['project_dir'], 'Resources'))
 
-        # FIXME - need to support all platforms - https://jira.appcelerator.org/browse/ALOY-85
         devicefamily = 'none'
         simtype = 'none'
         version = '0'
@@ -48,7 +96,14 @@ def compile(config):
             deploytype = config['deploytype']
         
         cfg = "platform=%s,version=%s,simtype=%s,devicefamily=%s,deploytype=%s," % (config['platform'],version,simtype,devicefamily,deploytype)
-        cmd = ["/usr/local/bin/node","/usr/local/bin/alloy", "compile", f, "--no-colors", "--config", cfg]
+        
+        if sys.platform == "win32":
+            cmd = [paths["alloy"], "compile", f, "--no-colors", "--config", cfg]
+        else:
+            cmd = [paths["node"], paths["alloy"], "compile", f, "--no-colors", "--config", cfg]
+
+        print "[INFO] Executing Alloy compile:"
+        print "[INFO]   %s" % " ".join(cmd)
         
         try:
             print check_output(cmd, stderr=subprocess.STDOUT)
@@ -60,7 +115,7 @@ def compile(config):
             if hasattr(ex, 'returncode'):
                 retcode = ex.returncode
             sys.exit(retcode)
-        except:
-            print "Unexpected error with Alloy compiler plugin:", sys.exc_info()[0]
+        except EnvironmentError as ex:
+            print "[ERROR] Unexpected error with Alloy compiler plugin: %s" % ex.strerror
             sys.exit(2)
 

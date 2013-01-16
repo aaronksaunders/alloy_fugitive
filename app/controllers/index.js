@@ -1,28 +1,38 @@
 function doClick(e) {
-	alert($.label.text);
+    alert($.label.text);
 }
 
+Ti.API.info('seeded: ' + Ti.App.Properties.hasProperty('seeded'));
 //determine if the database needs to be seeded
 if (!Ti.App.Properties.hasProperty('seeded')) {
-	var net = require('../../lib/network');
-	net.getFugitives(function(data) {
-		for (var i = 0; i < data.length; i++) {
 
-			Alloy.createModel("Fugitive", {
-				name : data[i].name,
-				captured : false
-			}).save();
+    // add all items to collection
+    Alloy.Collections.Fugitive.reset([{
+        "name" : "Jeff Haynie"
+    }, {
+        "name" : "Nolan Wright"
+    }, {
+        "name" : "Don Thorp"
+    }, {
+        "name" : "Marshall Culpepper"
+    }, {
+        "name" : "Blain Hamon"
+    }]);
 
-		}
-		Ti.App.Properties.setString('seeded', 'yuppers');
+    // save all of the elements
+    Alloy.Collections.Fugitive.each(function(_m) {
+        _m.save();
+    })
 
-		$.tabGroup.open();
-		
-		// force tables to update
-		Ti.App.fireEvent('update_table');
-	});
+    Ti.App.Properties.setString('seeded', 'yuppers');
+
+    $.tabGroup.open();
+
 } else {
 
-	$.tabGroup.open();
+    $.tabGroup.open();
 
 }
+
+// force tables to update
+Alloy.Collections.Fugitive.fetch();

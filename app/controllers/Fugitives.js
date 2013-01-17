@@ -1,5 +1,17 @@
 var fugitiveCollection = Alloy.Collections.Fugitive;
 
+
+/**
+ * only display the NOT captured items
+ *
+ * @param {Object} _collection
+ */
+function dofilter(_collection) {
+    debugger;
+    return fugitiveCollection.filter(function(_i){
+        return !_i.attributes.captured
+    });
+}
 // ..
 // PRIVATE FUNCTIONS
 //
@@ -17,7 +29,7 @@ function addNewFugitive() {
 $.table.addEventListener('click', function(_e) {
     var detailController = Alloy.createController('FugitiveDetail', {
         parentTab : $.fugitiveTab,
-        data : Alloy.Collections.Fugitive.models[_e.index]
+        data : fugitiveCollection.get(_e.rowData.model)
     });
     $.fugitiveTab.open(detailController.getView());
 });

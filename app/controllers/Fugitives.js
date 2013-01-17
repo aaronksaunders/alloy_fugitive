@@ -1,8 +1,8 @@
 var fugitiveCollection = Alloy.Collections.Fugitive;
 
 /**
- * only display the at-large fugitives
- * 
+ * only display the captured items
+ *
  * @param {Object} _collection
  */
 function dofilter(_collection) {

@@ -8,7 +8,7 @@ var fugitiveCollection = Alloy.Collections.Fugitive;
 
 /**
  * only display the captured items
- * 
+ *
  * @param {Object} _collection
  */
 function dofilter(_collection) {
@@ -20,10 +20,10 @@ function dofilter(_collection) {
 //
 // EVENT LISTENERS
 //
-$.table.addEventListener('click', function(_e) {
+$.table.addEventListener('click', function(_e) { debugger;
     var detailController = Alloy.createController('FugitiveDetail', {
         parentTab : $.capturedTab,
-        data : Alloy.Collections.Fugitive.models[_e.index]
+        data : fugitiveCollection.get(_e.rowData.model)
     });
     $.capturedTab.open(detailController.getView());
 });

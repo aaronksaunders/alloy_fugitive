@@ -2,7 +2,6 @@
 	backgroundColor: "white"
 },
 "#detailWindow" : {
-		title:"Fugitive",
 		layout:'vertical',
 		barColor: '#6d0a0c',
 		backgroundColor: 'transparent',

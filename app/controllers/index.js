@@ -36,7 +36,3 @@ if (!Ti.App.Properties.hasProperty('seeded')) {
 
 // force tables to update
 Alloy.Collections.Fugitive.fetch();
-
-Ti.App.addEventListener('update_table', function() {
-	Alloy.Collections.Fugitive.fetch();
-});

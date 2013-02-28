@@ -1,5 +1,6 @@
 <Alloy>
-	<TableViewRow id="row" dataId="" model="{id}">
+    <!-- have to use alloy_id since I did not specify an id in the schema -->
+	<TableViewRow id="row" dataId="" model="{alloy_id}">
 		<View class="vgroup">
 			<Label id="name" text="{name}"/>
 			<Label id="address" text="{address}"/>

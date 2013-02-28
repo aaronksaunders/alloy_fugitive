@@ -2,9 +2,9 @@ exports.definition = {
 
     config : {
         "columns" : {
-            "name" : "string",
+            "name" : "TEXT",
             "captured" : "integer",
-            "url" : "string",
+            "url" : "TEXT",
             "capturedLat" : "real",
             "capturedLong" : "real"
         },

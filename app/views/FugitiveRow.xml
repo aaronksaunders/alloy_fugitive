@@ -1,5 +1,5 @@
 <Alloy>
-	<TableViewRow id="row" dataId="" model="{id}">
+	<TableViewRow id="row" dataId="" model="{alloy_id}">
 		<View class="vgroup">
 			<Label id="name" text="{name}"/>
 			<Label id="address" text="{address}"/>

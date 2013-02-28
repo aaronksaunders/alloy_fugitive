@@ -6,7 +6,7 @@ var fugitiveCollection = Alloy.Collections.Fugitive;
  * @param {Object} _collection
  */
 function dofilter(_collection) {
-    debugger;
+    //debugger;
     return fugitiveCollection.filter(function(_i){
         return !_i.attributes.captured
     });
@@ -37,8 +37,7 @@ $.table.addEventListener('click', function(_e) {
 //
 // INITIALIZERS
 //
-// add the add button, this can be refactored
-if (Ti.Platform.osname === 'iphone') {
+if (OS_IOS) {
     $.add.style = Titanium.UI.iPhone.SystemButtonStyle.PLAIN;
     $.add.addEventListener('click', addNewFugitive);
     $.fugitiveWindow.setRightNavButton($.add);

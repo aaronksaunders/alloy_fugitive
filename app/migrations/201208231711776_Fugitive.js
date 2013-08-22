@@ -1,9 +1,9 @@
 migration.up = function(db) {
     db.createTable({
         "columns" : {
-            "name" : "string",
+            "name" : "text",
             "captured" : "integer",
-            "url" : "String",
+            "url" : "text",
             "capturedLat" : "real",
             "capturedLong" : "real"
         },

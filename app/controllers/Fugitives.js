@@ -43,3 +43,14 @@ if (OS_IOS) {
     $.fugitiveWindow.setRightNavButton($.add);
 }
 
+
+
+
+
+
+
+
+
+
+
+

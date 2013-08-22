@@ -1,7 +1,3 @@
-function doClick(e) {
-    alert($.label.text);
-}
-
 Ti.API.info('seeded: ' + Ti.App.Properties.hasProperty('seeded'));
 //determine if the database needs to be seeded
 if (!Ti.App.Properties.hasProperty('seeded')) {
@@ -22,7 +18,7 @@ if (!Ti.App.Properties.hasProperty('seeded')) {
     // save all of the elements
     Alloy.Collections.Fugitive.each(function(_m) {
         _m.save();
-    })
+    });
 
     Ti.App.Properties.setString('seeded', 'yuppers');
 

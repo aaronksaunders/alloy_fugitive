@@ -1,6 +1,5 @@
 <Alloy>
     <Model src="Fugitive" instance="true" id="fugitiveDetail"> 
-    <!-- dataTransform is not wired up yet, but i hacked it into my code -->
 	<Window id="detailWindow" model="$.fugitiveDetail" title="{$.fugitiveDetail.name}" dataTransform="dataTransformation">
 		<Label id="captured_lbl" text="{$.fugitiveDetail.captured}" ></Label>
 		<ImageView id="image" image="{$.fugitiveDetail.image}" ></ImageView>

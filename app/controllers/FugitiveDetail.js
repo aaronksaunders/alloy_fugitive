@@ -7,9 +7,7 @@ var args = arguments[0] || {};
 //$.thumbnail.image = args.image;
 $.parentController = args.parentTab;
 
-// add the datatransformation, Tony's busy!!
-// dataTransform is not wired up yet, but i
-// hacked it into my code
+// add the datatransformation
 $.fugitiveDetail = _.extend({}, $.fugitiveDetail, {
     transform : function() {
         return dataTransformation(this);
@@ -28,17 +26,19 @@ $.fugitiveDetail.set(args.data.attributes);
  * @param {Object} _model
  */
 function dataTransformation(_model) {
-
+	// Android will crash unless we explicitly cast _.model.attributes.captured
+	// to a Boolean (it's an integer)
+	var captured = Boolean(_model.attributes.captured);
     // toggle the capture button
-    $.capture_button.visible = !_model.attributes.captured;
+    $.capture_button.visible = !captured;
     // hide the map button for at-large fugitives
-    $.map_button.visible = _model.attributes.captured;
+    $.map_button.visible = captured;
 
     return {
         name : _model.attributes.name,
-        captured : _model.attributes.captured ? "Captured" : "Not Captured",
+        captured : captured ? "Captured" : "Not Captured",
         image : _model.attributes.url || '/images/burglar.png',
-    }
+    };
 }
 
 //
@@ -54,7 +54,7 @@ $.photo_button.addEventListener('click', function(_e) {
             $.image.image = image;
 
             //save for future use
-            var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'photo' + args.data.get("id") + '.png');
+            var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'photo' + args.data.get("alloy_id") + '.png');
             f.write(image);
 
             // update the model and save

@@ -23,7 +23,7 @@
 		top:10
 },
 "#name_tf[platform=android]" : {
-		height:Ti.UI.SIZE ,
+		height:Ti.UI.SIZE
 },
 "#photo_button" :{
 		title:'Add Photo',

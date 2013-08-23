@@ -17,10 +17,6 @@ function dofilter(_collection) {
 /**
  *
  */
-function addNewFugitive() {
-    var addFugitiveController = Alloy.createController('FugitiveAdd');
-    $.fugitiveTab.open(addFugitiveController.getView());
-}
 
 //
 // EVENT LISTENERS
@@ -38,6 +34,10 @@ $.table.addEventListener('click', function(_e) {
 // INITIALIZERS
 //
 if (OS_IOS) {
+    function addNewFugitive() {
+        var addFugitiveController = Alloy.createController('FugitiveAdd');
+        $.fugitiveTab.open(addFugitiveController.getView());
+    }
     $.add.style = Titanium.UI.iPhone.SystemButtonStyle.PLAIN;
     $.add.addEventListener('click', addNewFugitive);
     $.fugitiveWindow.setRightNavButton($.add);

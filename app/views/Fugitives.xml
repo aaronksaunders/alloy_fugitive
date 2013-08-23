@@ -7,10 +7,6 @@
             </TableView>
             <!-- iOS navbar button, hidden and used later -->
             <Button id="add" title="Add" top="-50dp" platform="ios"></Button>
-			<!-- This will add an Android menu -->
-			<Menu>
-				<MenuItem title="Add" onClick="addNewFugitive"/>
-			</Menu>
         </Window>
     </Tab>
 </Alloy>

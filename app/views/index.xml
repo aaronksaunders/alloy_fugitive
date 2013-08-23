@@ -1,8 +1,12 @@
 <Alloy>
     <TabGroup id='tabGroup'>
         <!-- Tab included via <Require> tag -->
-        <Require src="Fugitives"/>
+        <Require src="Fugitives" id="fugitivesTab"/>
         <!-- Tab included via <Require> tag -->
         <Require src="Captured"/>
+		<!-- This will add an Android menu -->
+		<Menu>
+			<MenuItem title="Add" onClick="addNewFugitive"/>
+		</Menu>
     </TabGroup>
 </Alloy>

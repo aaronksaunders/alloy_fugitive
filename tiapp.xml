@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ti:app xmlns:ti="http://ti.appcelerator.org">
+<?xml version="1.0" encoding="UTF-8"?><ti:app xmlns:ti="http://ti.appcelerator.org">
     <property name="acs-oauth-secret-production" type="string">1xVRU1INJopsq90pMwz5CqIspv84TNVl</property>
     <property name="acs-oauth-key-production" type="string">rrV83flILTNfeEtbSXSw0Xx1HJ85F2jG</property>
     <property name="acs-api-key-production" type="string">MRNJnjzy9D03hm6Hzle62e6gHrWOFZiD</property>
@@ -32,6 +31,7 @@
     <analytics>true</analytics>
     <guid>CD53D508-313C-4843-A391-516613AA243D</guid>
     <property name="ti.ui.defaultunit">system</property>
+    <property name="ti.android.threadstacksize" type="int">32768</property>
     <iphone>
         <orientations device="iphone">
             <orientation>Ti.UI.PORTRAIT</orientation>
@@ -58,5 +58,4 @@
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>
-</ti:app>
-ti:app>
+<property name="ti.deploytype">development</property></ti:app>

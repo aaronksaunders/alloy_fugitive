@@ -5,6 +5,11 @@ web: www.clearlyinnovative.com
 email: aaron@clearlyinnovative.com 
 twitter: @aaronksaunders  
 
+You will need to properly configure the tiapp.xml file to support google maps for your
+application. Information can be found here
+
+http://docs.appcelerator.com/titanium/latest/#!/guide/Google_Maps_v2_for_Android-section-36739898_GoogleMapsv2forAndroid-GettingStarted
+
 ## License
 
     Copyright (c) 2012-2014 Aaron K. Saunders

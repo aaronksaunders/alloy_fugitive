@@ -8,45 +8,62 @@
 		backgroundColor: 'transparent',
 		backgroundImage: 'images/grain.png'
 },
+"#name_lbl" : {
+        top:'10dp',
+        textAlign:'center',
+        font: {
+            fontWeight:'bold',
+            fontSize:'18dp'
+        },
+        color: '#fff',
+        height:Ti.UI.SIZE
+},
 "#captured_lbl" : {
-		top:10,
-		textAlign:'center',
-		font: {
-			fontWeight:'bold',
-			fontSize:18
-		},
-		color: '#fff',
-		height:Ti.UI.SIZE
+        top:'10dp',
+        textAlign:'center',
+        font: {
+            fontWeight:'bold',
+            fontSize:'16dp'
+        },
+        color: '#fff',
+        height:Ti.UI.SIZE
 },
 "#image" : {
-		height:80,
-		width:60,
-		top:10
+		height:'80dp',
+		width:'60dp',
+		top:'10dp'
 },
 "#name_tf[platform=android]" : {
-		height:Ti.UI.SIZE ,
+        top:'10dp',
+        textAlign:'center',
+        font: {
+            fontWeight:'bold',
+            fontSize:'18dp'
+        },
+        color: '#fff',
+        height:Ti.UI.SIZE
 },
 "#photo_button" :{
 		title:'Add Photo',
-		top:10,
+		top:'10dp',
 		height:Ti.UI.SIZE,
-		width:200
+		width:'200dp'
 },
 "#capture_button" :{
 		title:'Captured',
-		top:10,
+		top:'10dp',
 		height:Ti.UI.SIZE,
-		width:200
+		width:'200dp'
 },
 "#map_button" :{
 		title:'View On Map',
-		top:10,
+		top:'10dp',
 		height:Ti.UI.SIZE,
-		width:200
+		width:'200dp'
 },
 "#delete_button" :{
 		title:'Delete',
-		top:10,
+		top:'10dp',
 		height:Ti.UI.SIZE,
-		width:200
+		width:'200dp'
 }

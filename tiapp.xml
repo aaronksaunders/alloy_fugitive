@@ -52,7 +52,6 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
-        <module platform="android" version="1.0">ti.physicalSizeCategory</module>
         <module platform="commonjs">ti.cloud</module>
         <module platform="iphone">ti.map</module>
         <module platform="android">ti.map</module>

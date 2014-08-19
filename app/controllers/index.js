@@ -1,3 +1,5 @@
+Alloy.Globals.Map = require('ti.map');
+
 function doClick(e) {
     alert($.label.text);
 }

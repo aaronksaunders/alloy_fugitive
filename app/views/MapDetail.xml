@@ -1,5 +1,5 @@
 <Alloy>
 <Window id="mapWindow">
-		<View ns="Ti.Map" id="mapView"/>
+		<View ns="Alloy.Globals.Map" id="mapView"/>
 	</Window>
 </Alloy>

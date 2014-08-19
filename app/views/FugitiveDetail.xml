@@ -1,5 +1,5 @@
 <Alloy>
-    <Model src="Fugitive" instance="true" id="fugitiveDetail"> 
+    <Model src="Fugitive" instance="true" id="fugitiveDetail"/> 
     <!-- dataTransform is not wired up yet, but i hacked it into my code -->
 	<Window id="detailWindow" model="$.fugitiveDetail" dataTransform="dataTransformation">
 		<Label id="name_lbl" text="{$.fugitiveDetail.name}" ></Label>

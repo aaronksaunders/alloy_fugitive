@@ -7,7 +7,7 @@
 	backgroundColor:'#fff'
 },
 "#mapView" : {
-	mapType: Ti.Map.STANDARD_TYPE,
+	//mapType: Ti.Map.STANDARD_TYPE,
 	animate:true,
 	regionFit:true,
 	userLocation:false,

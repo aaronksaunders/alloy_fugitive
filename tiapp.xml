@@ -13,8 +13,8 @@
         <target device="android">true</target>
         <target device="blackberry">false</target>
     </deployment-targets>
-    <sdk-version>3.0.0.GA</sdk-version>
-    <id>ci.alloy.fugitive</id>
+    <sdk-version>3.3.0.GA</sdk-version>
+    <id>com.sophrinix.ci.alloy.fugitive</id>
     <name>alloy_fugitive</name>
     <version>1.0</version>
     <publisher>aaronksaunders</publisher>
@@ -52,8 +52,10 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
-        <module platform="commonjs" version="2.3.0">ti.cloud</module>
         <module platform="android" version="1.0">ti.physicalSizeCategory</module>
+        <module platform="commonjs">ti.cloud</module>
+        <module platform="iphone">ti.map</module>
+        <module platform="android">ti.map</module>
     </modules>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>

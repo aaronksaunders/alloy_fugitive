@@ -1,11 +1,11 @@
 var args = arguments[0] || {};
 
-var ann = Ti.Map.createAnnotation({
+var ann = Alloy.Globals.Map.createAnnotation({
 	latitude : args.model.get("capturedLat"),
 	longitude : args.model.get("capturedLong"),
 	title : args.model.get("name"),
 	subtitle : ('busted'),
-	pincolor : Ti.Map.ANNOTATION_RED,
+	pincolor : Alloy.Globals.Map.ANNOTATION_RED,
 	animate : true
 }); 
 

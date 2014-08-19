@@ -98,6 +98,19 @@ $.map_button.addEventListener('click', function(_e) {
         var mapController = Alloy.createController('MapDetail', {
             model : args.data
         });
+        mapController.getView().addEventListener('open', function() {
+            // for android actionbar
+            var activity = mapController.getView().getActivity();
+            if (activity != undefined && activity.actionBar != undefined) {
+                activity.actionBar.displayHomeAsUp = true;
+            }
+
+            activity.actionBar.onHomeIconItemSelected = function() {
+                Ti.API.info("Home clicked!");
+                mapController.getView().close();
+            };
+        });
+
         args.parentTab.open(mapController.getView());
     } else {
         alert('Not Captured Yet');

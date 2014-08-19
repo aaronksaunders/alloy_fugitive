@@ -1,17 +1,16 @@
 var fugitiveCollection = Alloy.Collections.Fugitive;
 
-
 /**
  * only display the NOT captured items
  *
  * @param {Object} _collection
  */
 function dofilter(_collection) {
-    debugger;
-    return fugitiveCollection.filter(function(_i){
-        return !_i.attributes.captured
+    return fugitiveCollection.filter(function(_i) {
+        return !_i.attributes.captured;
     });
 }
+
 // ..
 // PRIVATE FUNCTIONS
 //
@@ -31,15 +30,28 @@ $.table.addEventListener('click', function(_e) {
         parentTab : $.fugitiveTab,
         data : fugitiveCollection.get(_e.rowData.model)
     });
-    $.fugitiveTab.open(detailController.getView());
-});
 
+    detailController.getView().addEventListener('open', function() {
+        // for android actionbar
+        var activity = detailController.getView().getActivity();
+        if (activity != undefined && activity.actionBar != undefined) {
+            activity.actionBar.displayHomeAsUp = true;
+        }
+
+        activity.actionBar.onHomeIconItemSelected = function() {
+            Ti.API.info("Home clicked!");
+            detailController.getView().close();
+        };
+    });
+    $.fugitiveTab.open(detailController.getView());
+
+});
 
 //
 // INITIALIZERS
 //
 // add the add button, this can be refactored
-if (Ti.Platform.osname === 'iphone') {
+if (OS_IOS) {
     $.add.style = Titanium.UI.iPhone.SystemButtonStyle.PLAIN;
     $.add.addEventListener('click', addNewFugitive);
     $.fugitiveWindow.setRightNavButton($.add);

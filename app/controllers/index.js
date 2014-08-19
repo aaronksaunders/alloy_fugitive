@@ -1,4 +1,5 @@
 Alloy.Globals.Map = require('ti.map');
+Alloy.Globals.tabGroup = $.tabGroup;
 
 function doClick(e) {
     alert($.label.text);
@@ -24,7 +25,8 @@ if (!Ti.App.Properties.hasProperty('seeded')) {
     // save all of the elements
     Alloy.Collections.Fugitive.each(function(_m) {
         _m.save();
-    })
+    });
+    Alloy.Globals.tabGroup
 
     Ti.App.Properties.setString('seeded', 'yuppers');
 

@@ -1,9 +1,9 @@
 ## Author
 
 Aaron K. Saunders
-web: www.clearlyinnovative.com
-email: aaron@clearlyinnovative.com 
-twitter: @aaronksaunders  
+- web: www.clearlyinnovative.com
+- email: aaron@clearlyinnovative.com 
+- twitter: @aaronksaunders  
 
 You will need to properly configure the tiapp.xml file to support google maps for your
 application. Information can be found here

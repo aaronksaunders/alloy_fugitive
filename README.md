@@ -11,6 +11,7 @@ application. Information can be found here
 http://docs.appcelerator.com/titanium/latest/#!/guide/Google_Maps_v2_for_Android-section-36739898_GoogleMapsv2forAndroid-GettingStarted
 
 
+### New Appcelerator Alloy Book
 There is a more comprehensive sample application here that integrates Appcelerator Titanium Alloy and Appcelerator Cloud Services [Building Cross-Platform Apps using Titanium, Alloy, and Appcelerator Cloud Services](https://github.com/aaronksaunders/AppC-Alloy-Book)
 
 

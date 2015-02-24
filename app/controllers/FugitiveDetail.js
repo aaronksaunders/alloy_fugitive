@@ -36,7 +36,7 @@ function dataTransformation(_model) {
 		name : _model.attributes.name,
 		captured : _model.attributes.captured ? "Captured" : "Not Captured",
 		image : _model.attributes.url || '/images/burglar.png',
-	}
+	};
 }
 
 //
@@ -128,7 +128,7 @@ $.delete_button.addEventListener('click', function(_e) {
 	Alloy.Collections.Fugitive.fetch();
 
 	//on android, give a bit of a delay before closing the window...
-	if (Ti.Platform.osname == 'android') {
+	if (OS_ANDROID) {
 		setTimeout(function() {
 			$.detailWindow.close();
 		}, 2000);

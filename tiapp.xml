@@ -1,93 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-    <property name="acs-oauth-secret-production" type="string">1xVRU1INJopsq90pMwz5CqIspv84TNVl</property>
-    <property name="acs-oauth-key-production" type="string">rrV83flILTNfeEtbSXSw0Xx1HJ85F2jG</property>
-    <property name="acs-api-key-production" type="string">MRNJnjzy9D03hm6Hzle62e6gHrWOFZiD</property>
-    <property name="acs-oauth-secret-development" type="string">olWap60pWWa41IOcE1MGKKYvzf9Ad1yO</property>
-    <property name="acs-oauth-key-development" type="string">lwjH44Iv2GqBFKpIgeEvDWJYc1pPhbJJ</property>
-    <property name="acs-api-key-development" type="string">VpgosPke9k8YHHMiJhCwYpNDFa4DdgBe</property>
-    <deployment-targets>
-        <target device="mobileweb">true</target>
-        <target device="iphone">true</target>
-        <target device="ipad">true</target>
-        <target device="android">true</target>
-        <target device="blackberry">false</target>
-    </deployment-targets>
-    <sdk-version>3.3.0.GA</sdk-version>
-    <id>ci.alloy.fugitive</id>
-    <name>alloy_fugitive</name>
-    <version>1.0</version>
-    <publisher>aaronksaunders</publisher>
-    <url>http://www.clearlyinnovative.com</url>
-    <description>not specified</description>
-    <copyright>2012 by aaronksaunders</copyright>
-    <icon>appicon.png</icon>
-    <persistent-wifi>false</persistent-wifi>
-    <prerendered-icon>false</prerendered-icon>
-    <statusbar-style>default</statusbar-style>
-    <statusbar-hidden>false</statusbar-hidden>
-    <fullscreen>false</fullscreen>
-    <navbar-hidden>false</navbar-hidden>
-    <analytics>true</analytics>
-    <guid>3122078b-2a2e-4e3c-9be6-95ab58ca0b49</guid>
-    <property name="ti.ui.defaultunit">system</property>
-    <iphone>
-        <orientations device="iphone">
-            <orientation>Ti.UI.PORTRAIT</orientation>
-        </orientations>
-        <orientations device="ipad">
-            <orientation>Ti.UI.PORTRAIT</orientation>
-            <orientation>Ti.UI.UPSIDE_PORTRAIT</orientation>
-            <orientation>Ti.UI.LANDSCAPE_LEFT</orientation>
-            <orientation>Ti.UI.LANDSCAPE_RIGHT</orientation>
-        </orientations>
-    </iphone>
-    <!-- updated android manifest information for new UI -->
-    <android xmlns:android="http://schemas.android.com/apk/res/android">
-        <tool-api-level>14</tool-api-level>
-        <manifest>
-            <!-- uses-sdk android:minSdkVersion="11" android:targetSdkVersion="14" -->
-            <!-- Camera Access -->
-            <uses-permission android:name="android.permission.CAMERA"/>
-            <uses-feature android:name="android.hardware.camera"/>
-            <uses-feature android:name="android.hardware.camera.autofocus"/>
-            <!-- Allows the API to download data from Google Map servers -->
-            <uses-permission android:name="android.permission.INTERNET"/>
-            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-            <!-- Allows the API to cache data -->
-            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-            <!-- Use GPS for device location -->
-            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-            <!-- Use Wi-Fi or mobile connection for device location -->
-            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-            <!-- Allows the API to access Google web-based services -->
-            <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
-            <!-- Specify OpenGL ES 2.0 as a requirement -->
-            <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
-            <!-- Replace <com.domain.appid> with your application ID -->
-            <uses-permission android:name="com.wiley.TIgram.permission.MAPS_RECEIVE"/>
-            <permission
-                android:name="com.wiley.TIgram.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
-            <application android:hardwareAccelerated="true" >
-                <meta-data
-                    android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCbQmP34uYUrl-fxzQJb_GlTwQyY0W5GAE"/>
-            </application>
-        </manifest>
-    </android>
-    <mobileweb>
-        <precache/>
-        <splash>
-            <enabled>true</enabled>
-            <inline-css-images>true</inline-css-images>
-        </splash>
-        <theme>default</theme>
-    </mobileweb>
-    <modules>
-        <module platform="commonjs">ti.cloud</module>
-        <module platform="iphone">ti.map</module>
-        <module platform="android">ti.map</module>
-    </modules>
-    <plugins>
-        <plugin version="1.0">ti.alloy</plugin>
-    </plugins>
+	<property name="acs-oauth-secret-production" type="string">1xVRU1INJopsq90pMwz5CqIspv84TNVl</property>
+	<property name="acs-oauth-key-production" type="string">rrV83flILTNfeEtbSXSw0Xx1HJ85F2jG</property>
+	<property name="acs-api-key-production" type="string">MRNJnjzy9D03hm6Hzle62e6gHrWOFZiD</property>
+	<property name="acs-oauth-secret-development" type="string">olWap60pWWa41IOcE1MGKKYvzf9Ad1yO</property>
+	<property name="acs-oauth-key-development" type="string">lwjH44Iv2GqBFKpIgeEvDWJYc1pPhbJJ</property>
+	<property name="acs-api-key-development" type="string">VpgosPke9k8YHHMiJhCwYpNDFa4DdgBe</property>
+	<deployment-targets>
+		<target device="mobileweb">true</target>
+		<target device="iphone">true</target>
+		<target device="ipad">true</target>
+		<target device="android">true</target>
+		<target device="blackberry">false</target>
+	</deployment-targets>
+	<sdk-version>3.5.0.GA</sdk-version>
+	<id>ci.alloy.fugitive</id>
+	<name>alloy_fugitive</name>
+	<version>1.0</version>
+	<publisher>aaronksaunders</publisher>
+	<url>http://www.clearlyinnovative.com</url>
+	<description>not specified</description>
+	<copyright>2012 by aaronksaunders</copyright>
+	<icon>appicon.png</icon>
+	<persistent-wifi>false</persistent-wifi>
+	<prerendered-icon>false</prerendered-icon>
+	<statusbar-style>default</statusbar-style>
+	<statusbar-hidden>false</statusbar-hidden>
+	<fullscreen>false</fullscreen>
+	<navbar-hidden>false</navbar-hidden>
+	<analytics>true</analytics>
+	<guid>3122078b-2a2e-4e3c-9be6-95ab58ca0b49</guid>
+	<property name="ti.ui.defaultunit">system</property>
+	<ios>
+		<plist>
+			<dict>
+				<key>NSLocationAlwaysUsageDescription</key>
+				<string>Specify the reason for accessing the user's location information.
+					This appears in the alert dialog when asking the user for permission to
+					access their location.</string>
+				<key>UISupportedInterfaceOrientations~iphone</key>
+				<array>
+					<string>UIInterfaceOrientationPortrait</string>
+				</array>
+				<key>UISupportedInterfaceOrientations~ipad</key>
+				<array>
+					<string>UIInterfaceOrientationPortrait</string>
+					<string>UIInterfaceOrientationPortraitUpsideDown</string>
+					<string>UIInterfaceOrientationLandscapeLeft</string>
+					<string>UIInterfaceOrientationLandscapeRight</string>
+				</array>
+				<key>UIRequiresPersistentWiFi</key>
+				<false/>
+				<key>UIPrerenderedIcon</key>
+				<false/>
+				<key>UIStatusBarHidden</key>
+				<false/>
+				<key>UIStatusBarStyle</key>
+				<string>UIStatusBarStyleDefault</string>
+			</dict>
+		</plist>
+	</ios>
+	<!-- updated android manifest information for new UI -->
+	<android xmlns:android="http://schemas.android.com/apk/res/android">
+		<tool-api-level>14</tool-api-level>
+		<manifest>
+			<!-- uses-sdk android:minSdkVersion="11" android:targetSdkVersion="14" -->
+			<!-- Camera Access -->
+			<uses-permission android:name="android.permission.CAMERA"/>
+			<uses-feature android:name="android.hardware.camera"/>
+			<uses-feature android:name="android.hardware.camera.autofocus"/>
+			<!-- Allows the API to download data from Google Map servers -->
+			<uses-permission android:name="android.permission.INTERNET"/>
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+			<!-- Allows the API to cache data -->
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+			<!-- Use GPS for device location -->
+			<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+			<!-- Use Wi-Fi or mobile connection for device location -->
+			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+			<!-- Allows the API to access Google web-based services -->
+			<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+			<!-- Specify OpenGL ES 2.0 as a requirement -->
+			<uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+			<!-- Replace <com.domain.appid> with your application ID -->
+			<uses-permission android:name="com.wiley.TIgram.permission.MAPS_RECEIVE"/>
+			<permission
+			android:name="com.wiley.TIgram.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+			<application android:hardwareAccelerated="true">
+				<meta-data
+				android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyCbQmP34uYUrl-fxzQJb_GlTwQyY0W5GAE"/>
+			</application>
+		</manifest>
+	</android>
+	<mobileweb>
+		<precache/>
+		<splash>
+			<enabled>true</enabled>
+			<inline-css-images>true</inline-css-images>
+		</splash>
+		<theme>default</theme>
+	</mobileweb>
+	<modules>
+		<module platform="commonjs">ti.cloud</module>
+		<module platform="iphone">ti.map</module>
+		<module platform="android">ti.map</module>
+	</modules>
+	<plugins>
+		<plugin version="1.0">ti.alloy</plugin>
+	</plugins>
 </ti:app>

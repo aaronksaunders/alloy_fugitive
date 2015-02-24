@@ -1,6 +1,6 @@
 <Alloy>
 	<Window id="fugitiveAddWindow">
-		<TextField id="name_tf"></TextField>
+		<TextField id="name_tf" title="FugitiveName"></TextField>
 		<Button id="save_button"></Button>
 	</Window>
 </Alloy>

@@ -19,8 +19,8 @@
 	<version>1.0</version>
 	<publisher>aaronksaunders</publisher>
 	<url>http://www.clearlyinnovative.com</url>
-	<description>not specified</description>
-	<copyright>2012 by aaronksaunders</copyright>
+	<description>Sample Application for learning the basics of Appcelerator Alloy</description>
+	<copyright>2015 by aaronksaunders</copyright>
 	<icon>appicon.png</icon>
 	<persistent-wifi>false</persistent-wifi>
 	<prerendered-icon>false</prerendered-icon>
@@ -35,9 +35,7 @@
 		<plist>
 			<dict>
 				<key>NSLocationAlwaysUsageDescription</key>
-				<string>Specify the reason for accessing the user's location information.
-					This appears in the alert dialog when asking the user for permission to
-					access their location.</string>
+				<string>Show where the person was captured</string>
 				<key>UISupportedInterfaceOrientations~iphone</key>
 				<array>
 					<string>UIInterfaceOrientationPortrait</string>
@@ -62,7 +60,7 @@
 	</ios>
 	<!-- updated android manifest information for new UI -->
 	<android xmlns:android="http://schemas.android.com/apk/res/android">
-		<tool-api-level>14</tool-api-level>
+		<tool-api-level>16</tool-api-level>
 		<manifest>
 			<!-- uses-sdk android:minSdkVersion="11" android:targetSdkVersion="14" -->
 			<!-- Camera Access -->

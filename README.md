@@ -1,4 +1,10 @@
-## Author
+[![Appcelerator Titanium](http://www-static.appcelerator.com/badges/titanium-git-badge-sq.png)](http://appcelerator.com/titanium/) [![Appcelerator Alloy](http://www-static.appcelerator.com/badges/alloy-git-badge-sq.png)](http://appcelerator.com/alloy/)
+
+### Sample Application Demostrating Appcelerator Alloy - Alloy Fugitive
+===
+_Concepts here are meant to be a introductory guide to concepts covered in my book on Appcelerator Alloy and Appcelerator Cloud Services_
+
+![text](https://raw.githubusercontent.com/aaronksaunders/testInClass/master/screens/small_book_cover.png)
 
 Aaron K. Saunders
 - web: www.clearlyinnovative.com
@@ -6,18 +12,21 @@ Aaron K. Saunders
 - twitter: @aaronksaunders  
 
 You will need to properly configure the tiapp.xml file to support google maps for your
-application. Information can be found here
+application. Information can be found here:
 
 http://docs.appcelerator.com/titanium/latest/#!/guide/Google_Maps_v2_for_Android-section-36739898_GoogleMapsv2forAndroid-GettingStarted
 
+_Concepts here are meant to be a introductory guide to concepts covered in my book on Appcelerator Alloy and Appcelerator Cloud Services_
 
 ### New Appcelerator Alloy Book
+
+![text](https://raw.githubusercontent.com/aaronksaunders/testInClass/master/screens/small_book_cover.png)
 There is a more comprehensive sample application here that integrates Appcelerator Titanium Alloy and Appcelerator Cloud Services [Building Cross-Platform Apps using Titanium, Alloy, and Appcelerator Cloud Services](https://github.com/aaronksaunders/AppC-Alloy-Book)
 
 
 ## License
 
-    Copyright (c) 2012-2014 Aaron K. Saunders
+    Copyright (c) 2012-2015 Aaron K. Saunders
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal

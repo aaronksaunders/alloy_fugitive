@@ -1,5 +1,9 @@
 [![Appcelerator Titanium](http://www-static.appcelerator.com/badges/titanium-git-badge-sq.png)](http://appcelerator.com/titanium/) [![Appcelerator Alloy](http://www-static.appcelerator.com/badges/alloy-git-badge-sq.png)](http://appcelerator.com/alloy/)
-
+____
+#### Videos
+Appcelerator Alloy Simple TableView Mobile App: https://youtu.be/Sz_V5HAqroU via @YouTube
+Intro To Titanium Studio and Your First Appcelerator Alloy HelloWorld App: https://youtu.be/EBFbkM5eM6w via @YouTube
+____
 ### Sample Application Demostrating Appcelerator Alloy - Alloy Fugitive
 
 You will need to properly configure the tiapp.xml file to support google maps for your
